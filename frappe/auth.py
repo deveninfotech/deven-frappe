@@ -118,10 +118,14 @@ class LoginManager:
 			frappe.local.response["message"] = "No App"
 			if info.access_type == 'Patient':
 				frappe.local.response["access_link"] = "/patient"
+				frappe.local.response["access_role"] = "Patient"
 				frappe.local.cookie_manager.set_cookie("user_type","patient")
 			elif info.access_type == 'Provider':
 				frappe.local.response["access_link"] = "/provider"
+				frappe.local.response["access_role"] = "Provider"
 				frappe.local.cookie_manager.set_cookie("user_type","provider")
+			elif info.access_type == 'Chemist':
+				frappe.local.response["access_role"] = "Chemist"
 				# # check if provider is verified or not
 				# is_verified = "No"
 				# if vd.verification_for == "Provider":
