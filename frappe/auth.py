@@ -126,6 +126,8 @@ class LoginManager:
 				frappe.local.cookie_manager.set_cookie("user_type","provider")
 			elif info.access_type == 'Chemist':
 				frappe.local.response["access_role"] = "Chemist"
+			elif info.access_type == 'Stockist':
+				frappe.local.response["access_role"] = "Stockist"
 				# # check if provider is verified or not
 				# is_verified = "No"
 				# if vd.verification_for == "Provider":
